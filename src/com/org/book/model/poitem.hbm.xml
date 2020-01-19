@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name = "com.org.book.model.Poitem" table="Poitem">
+	 	<id name="id" type="int" column = "id" > </id>
+	 	<property name="bookid" type="int">
+	 		<column name="bookid"></column>
+	 	</property>
+	 	<property name="price" type="int"><column name="price"></column></property>
+	 	<property name="quantity" type="int"><column name="quantity"></column></property>
+	</class>
+	
+	<query name="findPoitemByIdandBookid">
+		<![CDATA[from Poitem p where p.id = :id and p.bookid = :bookid]]>
+	</query>
+	<query name="findAllPoitem">
+		<![CDATA[from Poitem]]>
+	</query>
+
+</hibernate-mapping>

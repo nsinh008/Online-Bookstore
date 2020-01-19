@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name = "com.org.book.model.User" table="User">
+	 	<id name="customerid" type="int" column = "customerid" > <generator class ="native"/></id>
+	 	<property name="fname" type="string">
+	 		<column name="fname"></column>
+	 	</property>
+	 	<property name="lname" type="string"><column name="lname"></column></property>
+	 	<property name="pwd" type="string"><column name="pwd"></column></property>
+	 	<property name="email" type="string"><column name="email"></column></property>
+	</class>
+	<query name="findUserByFname">
+		<![CDATA[from User u where u.fname = :fname]]>
+	</query>
+	<query name="findUserByEmail">
+		<![CDATA[from User u where u.email = :email]]>
+	</query>
+	<query name="findAllUsers">
+		<![CDATA[from User]]>
+	</query>
+
+</hibernate-mapping>

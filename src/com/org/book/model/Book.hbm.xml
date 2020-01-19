@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+	<class table="book" name="com.org.book.model.Book">
+		<id name="bookid" column="bookid" type="int">
+		</id>
+		<property name="title" type="string">
+			<column name="title"/>
+		</property>	
+		<property name="price" type="int">
+			<column name="price"/>
+		</property>
+		<property name="author" type="string">
+			<column name="author"/>	
+		</property>
+		<property name="category" type="string">
+			<column name="category"/>
+		</property>
+		<property name="image" type="string">
+			<column name="image"/>
+		</property>
+	</class>
+	
+	<query name="findBookbyCategory">
+		<![CDATA[from Book b where b.category = :cat]]>
+	</query>
+	
+	<query name="findBookbyId">
+		<![CDATA[from Book b where b.id = :id]]>
+	</query>
+	
+	<query name="findAllBooks">
+	    <![CDATA[from Book]]>
+	</query>
+	
+	
+</hibernate-mapping>

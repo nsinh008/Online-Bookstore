@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name = "com.org.book.model.PurchaseOrder" table="PurchaseOrder">
+	 	<id name="id" type="int" column = "id" > <generator class ="native"/></id>
+	 	<property name="status" type="string"><column name="status"></column></property>
+	 	<property name="address" type="int"><column name="address"></column></property>
+	 	<property name="customerid" type="int"><column name="customerid"></column></property>
+	 	<property name="amount" type="double"><column name="amount"></column></property>
+	</class>
+	<query name="findPurchaseOrderByCustomerid">
+		<![CDATA[from PurchaseOrder po where po.customerid = :customerid]]>
+	</query>
+	<query name="findAllPurchaseOrder">
+		<![CDATA[from PurchaseOrder]]>
+	</query>
+	<query name="findPurchaseOrderByPOid">
+		<![CDATA[from PurchaseOrder po where po.id = :poid]]>
+	</query>
+	
+	<query name="updateStatusByPOID">
+		<![CDATA[UPDATE PurchaseOrder po SET po.status = :status where po.id = :poid]]>
+	</query>
+	<query name="countRowsInPO">
+		<![CDATA[select count(*) from PurchaseOrder po]]>	
+	</query>
+
+</hibernate-mapping>

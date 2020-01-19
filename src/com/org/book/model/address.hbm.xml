@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name = "com.org.book.model.Address" table="Address">
+	 	<id name="id" type="int" column = "id" > <generator class ="native"/></id>
+	 	<property name="street" type="string"><column name="street"></column></property>
+	 	<property name="province" type="string"><column name="province"></column></property>
+	 	<property name="country" type="string"><column name="country"></column></property>
+	 	<property name="zip" type="string"><column name="zip"></column></property>
+	 	<property name="phone" type="string"><column name="phone"></column></property>
+	 	<property name="customerid" type="int"><column name="customerid"></column></property>
+	 	<property name="city" type="string"><column name="city"></column></property>
+	</class>
+	
+	<query name="getAddressByCustomerid">
+		<![CDATA[from Address a where a.customerid = :customerid]]>
+	</query>
+
+	<query name="getAllAddress">
+		<![CDATA[from Address]]>
+	</query>
+
+</hibernate-mapping>
